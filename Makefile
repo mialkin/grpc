@@ -1,14 +1,22 @@
-STARTUP_PROJECT := src/Grpc
-DEFAULT_ENVIRONMENT := Ide
+API_PROJECT := src/Grpc.Api
+GRPC_SERVER_PROJECT := src/Grpc.Server
 
-.PHONY: run
-run:
-	dotnet run --project $(STARTUP_PROJECT)
+.PHONY: run-api
+run-api:
+	dotnet run --project $(API_PROJECT)
 
-.PHONY: watch
-watch:
-	dotnet watch --project $(STARTUP_PROJECT) --no-hot-reload
+.PHONY: watch-api
+watch-api:
+	dotnet watch --project $(API_PROJECT) --no-hot-reload
+
+.PHONY: run-grpc-server
+run-grpc-server:
+	dotnet run --project $(GRPC_SERVER_PROJECT)
+
+.PHONY: watch-grpc-server
+watch-grpc-server:
+	dotnet watch --project $(GRPC_SERVER_PROJECT) --no-hot-reload
 
 .PHONY: test
 test:
-	dotnet test --environment ASPNETCORE_ENVIRONMENT=$(DEFAULT_ENVIRONMENT)
+	dotnet test

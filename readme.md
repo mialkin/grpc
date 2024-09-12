@@ -8,12 +8,14 @@
 ## How to run application
 
 ```bash
-make run
+make run-api
+make run-grpc-server
 ```
 or:
 
 ```bash
-make watch
+make  watch-api
+make  watch-grpc-server
 ```
 
 ## How to run tests
