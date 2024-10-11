@@ -14,12 +14,6 @@ make run-grpc-server
 or:
 
 ```bash
-make  watch-api
-make  watch-grpc-server
-```
-
-## How to run tests
-
-```bash
-make test
+make watch-api
+make watch-grpc-server
 ```

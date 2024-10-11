@@ -1,21 +1,33 @@
+using AutoMapper;
 using Grpc.Core;
+using Grpc.Server.Models;
 
 namespace Grpc.Server.Services;
 
-public class GreeterService : Greeter.GreeterBase
+public class GreeterService(IMapper mapper) : Greeter.GreeterBase
 {
-    private readonly ILogger<GreeterService> _logger;
-
-    public GreeterService(ILogger<GreeterService> logger)
+    public override async Task<GetGreetingResponse> GetGreeting(GetGreetingRequest request, ServerCallContext context)
     {
-        _logger = logger;
-    }
+        await Task.CompletedTask;
 
-    public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-    {
-        return Task.FromResult(new HelloReply
+        var result = new Greeting
         {
-            Message = "Hello " + request.Name
-        });
+            Amounts = [10, 20, 50],
+            Size = 100,
+            Items =
+            [
+                new Models.Item
+                {
+                    Weight = 40, Description = "Apple"
+                },
+                new Models.Item
+                {
+                    Weight = 20, Description = "Banana"
+                }
+            ],
+            OrderDate = DateTime.UtcNow
+        };
+
+        return mapper.Map<GetGreetingResponse>(result);
     }
 }

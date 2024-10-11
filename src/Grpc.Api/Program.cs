@@ -7,8 +7,14 @@ var application = builder.Build();
 application.UseSwagger();
 application.UseSwaggerUI();
 
-application.MapGet("/ping", () => "Pong")
+application.MapGet("/", () => "ping")
     .WithName("get-ping")
     .WithOpenApi();
+
+application.MapGet("/get-name", () =>
+{
+
+    return "Aleksei";
+});
 
 application.Run();
