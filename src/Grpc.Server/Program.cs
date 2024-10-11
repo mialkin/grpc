@@ -18,3 +18,5 @@ if (application.Environment.IsDevelopment())
 }
 
 application.Run();
+
+public partial class Program;
