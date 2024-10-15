@@ -10,7 +10,8 @@ var application = builder.Build();
 application.MapGet("/", () => "ping");
 
 application.MapGet(
-    "/get-name", async (Greeter.GreeterClient client) =>
+    pattern: "/call-server",
+    handler: async (Greeter.GreeterClient client) =>
     {
         var request = new GetGreetingRequest();
         var result = await client.GetGreetingAsync(request);
