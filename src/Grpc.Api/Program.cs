@@ -17,14 +17,7 @@ application.MapGet("/", () => "ping")
 application.MapGet(
     "/get-name", async () =>
     {
-        using var handler = new HttpClientHandler();
-        // https://learn.microsoft.com/en-us/aspnet/core/grpc/troubleshoot?view=aspnetcore-8.0#call-a-grpc-service-with-an-untrustedinvalid-certificate
-        handler.ServerCertificateCustomValidationCallback =
-            HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-
-        using var channel = GrpcChannel.ForAddress(
-            address: "http://localhost:5140",
-            channelOptions: new GrpcChannelOptions { HttpHandler = handler });
+        using var channel = GrpcChannel.ForAddress(address: "http://localhost:5140");
 
         var client = new Greeter.GreeterClient(channel);
         var request = new GetGreetingRequest();
