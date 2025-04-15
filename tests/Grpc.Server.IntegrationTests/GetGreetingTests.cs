@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Grpc.Net.Client;
+using Grpc.Server.Greet.API;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Grpc.Server.IntegrationTests;

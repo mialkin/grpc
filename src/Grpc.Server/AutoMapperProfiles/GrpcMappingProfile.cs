@@ -1,6 +1,8 @@
 using AutoMapper;
 using Google.Protobuf.WellKnownTypes;
+using Grpc.Server.Greet.API;
 using Grpc.Server.Models;
+using Item = Grpc.Server.Greet.API.Item;
 
 namespace Grpc.Server.AutoMapperProfiles;
 

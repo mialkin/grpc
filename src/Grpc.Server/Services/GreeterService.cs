@@ -1,5 +1,6 @@
 using AutoMapper;
 using Grpc.Core;
+using Grpc.Server.Greet.API;
 using Grpc.Server.Models;
 
 namespace Grpc.Server.Services;
@@ -25,7 +26,8 @@ public class GreeterService(IMapper mapper) : Greeter.GreeterBase
                     Weight = 20, Description = "Banana"
                 }
             ],
-            OrderDate = DateTime.UtcNow
+            OrderDate = DateTime.UtcNow,
+            Sum = 500.45m
         };
 
         return mapper.Map<GetGreetingResponse>(result);

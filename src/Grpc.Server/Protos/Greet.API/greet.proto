@@ -1,8 +1,9 @@
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "Protos/money.proto";
 
-option csharp_namespace = "Grpc.Server";
+option csharp_namespace = "Grpc.Server.Greet.API";
 
 package greet;
 
@@ -17,6 +18,7 @@ message GetGreetingResponse {
     int32 size = 2;
     repeated Item items = 3;
     google.protobuf.Timestamp order_date = 4;
+    Money sum = 5;
 }
 
 message Item {

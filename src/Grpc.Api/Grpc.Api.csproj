@@ -10,10 +10,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProtoBuf Include="..\Grpc.Server\Protos\greet.proto" GrpcServices="Client">
-      <Link>Protos\greet.proto</Link>
-    </ProtoBuf>
-  </ItemGroup>
-
 </Project>
