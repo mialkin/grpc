@@ -1,4 +1,4 @@
-using Grpc.Server;
+using Grpc.Api.Protos.Greet.API;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,12 +13,11 @@ var application = builder.Build();
 
 application.UseSwagger(options => { options.RouteTemplate = "openapi/{documentName}.json"; });
 
-application.MapScalarApiReference(
-    x =>
-    {
-        x.Title = "GRPC client API";
-        x.DarkMode = false;
-    });
+application.MapScalarApiReference(x =>
+{
+    x.Title = "GRPC client API";
+    x.DarkMode = false;
+});
 
 application.MapGet("/", () => Results.Redirect("/scalar/v1")).ExcludeFromDescription();
 
