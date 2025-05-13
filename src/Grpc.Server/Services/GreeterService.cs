@@ -1,4 +1,5 @@
 using AutoMapper;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Grpc.Server.Greet.API;
 using Grpc.Server.Models;
@@ -7,7 +8,7 @@ namespace Grpc.Server.Services;
 
 public class GreeterService(IMapper mapper) : Greeter.GreeterBase
 {
-    public override async Task<GetGreetingResponse> GetGreeting(GetGreetingRequest request, ServerCallContext context)
+    public override async Task<GetGreetingResponse> GetGreeting(Empty request, ServerCallContext context)
     {
         await Task.CompletedTask;
 

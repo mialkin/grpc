@@ -1,17 +1,16 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "Protos/money.proto";
 
 option csharp_namespace = "Grpc.Server.Greet.API";
 
-package greet;
+package greet.v1;
 
 service Greeter {
-    rpc GetGreeting (GetGreetingRequest) returns (GetGreetingResponse);
+    rpc GetGreeting (google.protobuf.Empty) returns (GetGreetingResponse);
 }
-
-message GetGreetingRequest {}
 
 message GetGreetingResponse {
     repeated int32 amounts = 1;
